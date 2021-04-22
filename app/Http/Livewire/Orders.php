@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use App\models\User;
 use App\models\Order;
 use App\models\Item;
 use App\models\PriceList;
@@ -21,13 +22,14 @@ class Orders extends Component
 
     public function render()
     {
+        $user = User::where('id','=',Auth::id())->first();
         $this->orders = Item::
         select('id_mgt_item','description_item','estimate_weight','fixed_weight','capture_image','price.type_item')
         ->join('price_list as price','management_item.id_type_item','=','price.id_type_item')
+        ->where('management_item.id_penyetor','=',Auth::id())
         ->get();
 
         $this->itemList = $this->getPriceList();
-        // var_dump($this->itemList);
         return view('livewire.order');
     }
 
