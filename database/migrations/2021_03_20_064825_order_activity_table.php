@@ -19,9 +19,10 @@ class OrderActivityTable extends Migration
             $table->integer('id_penyetor')->references('id_user')->on('users');
             $table->integer('id_bank_sampah')->references('id_user')->on('users');
             $table->dateTime('date_order');
-            $table->integer('distance');
-            $table->string('vehicle',100);
-            $table->string('description',100);
+            $table->string('distance',100);
+            $table->string('vehicle',100)->nullable();
+            $table->string('description',100)->nullable();
+            $table->string('status',100)->default('0');
 
         });
     }

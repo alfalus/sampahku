@@ -16,7 +16,7 @@ class PriceListTable extends Migration
         Schema::create('price_list', function (Blueprint $table) {
             $table->increments('id_type_item');
             $table->string('type_item',100);
-            $table->decimal('price_weight',$precision=8);
+            $table->decimal('price_weight',$precision=8,$scale = 0);
 
         });
     }

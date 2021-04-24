@@ -24,7 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('kecamatan');
             $table->string('kelurahan');
             $table->string('role');
-            $table->string('coordinate')->nullable();
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             $table->string('operational_time')->nullable();
             $table->integer('accumulation_reward')->default(0);
             $table->timestamp('email_verified_at')->nullable();

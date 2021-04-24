@@ -16,11 +16,12 @@ class ManagementItemTable extends Migration
         Schema::create('management_item', function (Blueprint $table) {
             $table->increments('id_mgt_item');
             $table->integer('id_penyetor')->references('id_user')->on('users');
-            $table->integer('id_type_item')->references('id_type_item')->on('price_list');
-            $table->string('description_item',100);
-            $table->integer('estimate_weight');
-            $table->integer('fixed_weight')->default('0');
-            $table->longText('capture_image');
+            $table->string('status')->default('0');
+            // $table->integer('id_type_item')->references('id_type_item')->on('price_list');
+            // $table->string('description_item',100);
+            // $table->integer('estimate_weight');
+            // $table->integer('fixed_weight')->default('0');
+            // $table->longText('capture_image');
 
         });
     }

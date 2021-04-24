@@ -30,6 +30,6 @@ class RewardTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('price_list');
+        Schema::dropIfExists('reward');
     }
 }
