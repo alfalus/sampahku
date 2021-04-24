@@ -10,10 +10,11 @@
     <div class="pb-12">
         <div class="max-w-8xl mx-auto sm:px-6 lg:px-12">
             {{-- <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg"> --}}
-                
+                {{-- {{dd($resp)}} --}}
                 <div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-12">
                     @foreach ($resp['articles'] as $data)
-                        @if ($data['author'] != 'Kapanlagicom' && stripos($data['content'], env('NEWS_QUERY') ) )
+                        {{-- @if ($data['author'] != 'Kapanlagicom' && stripos($data['content'], env('NEWS_QUERY') ) ) --}}
+                        @if ($data['source']['name'] != 'Kapanlagi.com' && $data['source']['name'] != 'The Advocate') 
                         <div class="group rounded overflow-hidden shadow-lg bg-white">
                             <img class="group-hover:cursor-pointer w-full" src="{{$data['urlToImage']}}" alt="img-">
                             <div class="px-6 py-4">

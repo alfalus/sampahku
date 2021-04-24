@@ -22,8 +22,9 @@ Route::middleware(
     ['auth:sanctum', 'verified'],
     ['prefix','transaksi'],
 )->group(function(){
-    Route::get('/dashboard','App\Http\Controllers\NewsController@index')->name('dashboard');
-    Route::get('/',Orders::class)->name('transaksi');
+    // Route::get('/dashboard','App\Http\Controllers\NewsController@index')->name('dashboard');
+    Route::get('/','App\Http\Controllers\NewsController@index')->name('dashboard');
+    Route::get('/transaksi',Orders::class)->name('transaksi');
     Route::get('/reward','App\Http\Controllers\RewardController@index')->name('reward');
     Route::get('/lokasi','App\Http\Controllers\MapsController@index')->name('lokasi');
 });
@@ -32,7 +33,7 @@ Route::middleware(
 //     Route::get('/',Orders::class)->name('transaksi');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('post', Posts::class)->name('post');
+// Route::middleware(['auth:sanctum', 'verified'])->get('post', Posts::class)->name('post');
 
 //sample
 Route::get('gis',function(){

@@ -16,10 +16,11 @@ class Item extends Model
     protected $fillable = [
         'id_mgt_item',
         'id_penyetor',
-        'id_type_item',
-        'description_item',
-        'estimate_weight',
-        'fixed_weight',
-        'capture_image',
+        'status'
+        // 'id_type_item',
+        // 'description_item',
+        // 'estimate_weight',
+        // 'fixed_weight',
+        // 'capture_image',
     ];
 }

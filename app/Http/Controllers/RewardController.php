@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
+use App\models\Order;
+
+use Auth;
 
 class RewardController extends Controller
 {
-    public function index(){        
+    public function index(){     
+        $trx = $this->getJumlahTrx();   
         // $params = array(
         //     "q" => env("NEWS_QUERY"),
         //     "from" => date('Y-m-d', strtotime('-30 days')),
@@ -21,6 +26,17 @@ class RewardController extends Controller
         // $response = $client->get($urlNews);
         // $resp = $response->getBody()->getContents();
 
-        return view('reward');
+        return view('reward')->with('trx',$trx);
+    }
+
+    public function getJumlahTrx()
+    {
+        try {
+            $result = Order::where('id_penyetor','=',Auth::id())->where('status','=','2')->count();
+        } catch (\Throwable $th) {
+            dd($result);
+        }
+
+        return $result;
     }
 }
